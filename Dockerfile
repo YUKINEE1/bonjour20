@@ -1,6 +1,14 @@
-FROM openjdk:17-jre-slim
+# Utilisez une image de base Java
+FROM openjdk:21-jdk-slim
+
+# Définissez le répertoire de travail dans le conteneur
 WORKDIR /app
-COPY target/bonjour21.jar /app/app.jar
+
+# Copiez le fichier JAR dans le conteneur
+COPY target/*.jar app.jar
+
+# Exposez le port utilisé par l'application Spring Boot
 EXPOSE 8084
 
-ENTRYPOINT ["java", "-jar","app.jar"]
+# Commande pour exécuter l'application
+ENTRYPOINT ["java", "-jar", "app.jar"]
