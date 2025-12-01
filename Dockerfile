@@ -1,5 +1,5 @@
 # Utilisez une image de base Java
-FROM openjdk:21-jdk-slim
+FROM openjdk:26-ea-jdk-slim
 
 # Définissez le répertoire de travail dans le conteneur
 WORKDIR /app
