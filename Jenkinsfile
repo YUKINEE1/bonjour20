@@ -17,12 +17,12 @@ pipeline {
 
         stage('Build Maven') {
             steps {
-
+                 docker.image('maven:3.9.6-eclipse-temurin-21').inside {
                     dir('bonjour21'){
                         sh 'mvn clean package -DskipTests'
 
                     }
-
+ }
                 }
 
         }
