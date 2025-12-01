@@ -23,13 +23,13 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: temurin
-        java-version: 26
+        java-version: 21
 
     - name: Setup Maven
       uses: actions/setup-java@v3
       with:
         distribution: temurin
-        java-version: 26
+        java-version: 21
         cache: maven
 
     # 3. Build le projet Maven
