@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/YUKINEE1/bonjour21.git',
+                    url: 'https://github.com/YUKINEE1/bonjour20.git',
                     credentialsId: 'github-bonjour21'
             }
         }
