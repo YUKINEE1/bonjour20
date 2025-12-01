@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    tools {
+        maven "mvn"
+    }
+
 
     environment {
         DOCKER_IMAGE = "charifray/bonjour21:${BUILD_NUMBER}"
@@ -15,7 +19,12 @@ pipeline {
             }
         }
 
-    
+      stage('Build Maven') {
+            steps {
+                        sh 'mvn clean package -DskipTests'
+
+                    }    
+        }
 
         stage('Build Docker Image') {
             steps {
