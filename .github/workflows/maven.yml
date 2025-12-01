@@ -54,6 +54,10 @@ jobs:
       uses: azure/setup-kubectl@v3
       with:
         version: 'latest'
+    - name: Set up KUBECONFIG
+      run: |
+        echo "${{ secrets.KUBECONFIG }}" > kubeconfig
+        export KUBECONFIG=$PWD/kubeconfig
 
     - name: Apply Kubernetes manifests
       env:
