@@ -56,12 +56,10 @@ jobs:
         version: 'latest'
     - name: Set up KUBECONFIG
       run: |
-        echo "${{ secrets.KUBECONFIG }}" > kubeconfig
-        export KUBECONFIG=$PWD/kubeconfig
+        mkdir -p $HOME/.kube
+        echo ${{ secrets.KUBECONFIG }} | base64 --decode > $HOME/.kube/config
 
     - name: Apply Kubernetes manifests
-      env:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
       run: |
         echo "Déploiement en cours via kubectl..."
         kubectl apply -f bonjour.yaml
