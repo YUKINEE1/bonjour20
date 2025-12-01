@@ -19,9 +19,9 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                dir('bonjour21') {
+                
                     sh "docker build -t ${DOCKER_IMAGE} ."
-                }
+                
             }
         }
 
