@@ -17,13 +17,9 @@ pipeline {
 
         stage('Build Maven') {
             steps {
-                 docker.image('maven:3.9.6-amazoncorretto-21').inside {
-                    
-                        sh 'mvn clean package -DskipTests'
-                    
- }
-                }
-
+             
+                      sh 'mvn clean package -DskipTests'                 
+ }          
         }
 
         stage('Build Docker Image') {
