@@ -11,7 +11,7 @@ pipeline {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/YUKINEE1/bonjour20.git',
-                    credentialsId: 'github-bonjour21'
+                    credentialsId: '5d54117f-6897-46b3-bcaa-22e638acf4d8'
             }
         }
 
