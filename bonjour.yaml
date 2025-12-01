@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bonjour21-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bonjour21
+  template:
+    metadata:
+      labels:
+        app: bonjour21
+    spec:
+      containers:
+      - name: bonjour21
+        image: charifray/bonjour21:latest
+        ports:
+        - containerPort: 8084
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bonjour21-service
+spec:
+  selector:
+    app: bonjour21
+  ports:
+    - protocol: TCP
+      port: 8585
+      targetPort: 8084
+  type: LoadBalancer
